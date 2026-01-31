@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<title>Something....</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  font-family: Georgia, "Noto Serif Devanagari", "Mangal", serif;
+  overflow: hidden;
+}
+
+/* MAIN STAGE */
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* DOODLE */
+.doodle-bg {
+  position: absolute;
+  inset: 0;
+  background: url("doodle-vertical.png") no-repeat center top;
+  background-size: contain;
+  z-index: 1;
+  animation: doodleFade 3s ease forwards;
+  animation-delay: 2.5s;
+}
+
+/* TEXT */
+.text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 18px;
+  opacity: 0;
+  animation: textIn 2s ease forwards;
+  animation-delay: 4.5s;
+}
+
+.text-box {
+  max-width: 360px;
+  text-align: center;
+}
+
+.text-box h1 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin-bottom: 14px;
+}
+
+.text-box p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* BLUSH */
+.blush {
+  display: inline-block;
+  font-weight: 600;
+  opacity: 0;
+  animation: blushIn 2.5s ease forwards;
+  animation-delay: 6.2s;
+}
+
+/* POEM */
+.poem {
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.poem-line {
+  opacity: 0;
+  transform: translateY(4px);
+  animation: writeIn 1.4s ease forwards;
+}
+
+/* TIMING */
+.poem-line:nth-child(1)  { animation-delay: 7.0s; }
+.poem-line:nth-child(2)  { animation-delay: 7.7s; }
+.poem-line:nth-child(3)  { animation-delay: 8.4s; }
+.poem-line:nth-child(4)  { animation-delay: 9.1s; }
+
+.poem-line:nth-child(6)  { animation-delay: 10.4s; }
+.poem-line:nth-child(7)  { animation-delay: 11.1s; }
+.poem-line:nth-child(8)  { animation-delay: 11.8s; }
+.poem-line:nth-child(9)  { animation-delay: 12.5s; }
+
+.poem-line:nth-child(11) { animation-delay: 13.8s; }
+.poem-line:nth-child(12) { animation-delay: 14.5s; }
+.poem-line:nth-child(13) { animation-delay: 15.2s; }
+.poem-line:nth-child(14) { animation-delay: 15.9s; }
+
+.author {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 0.85rem;
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 17.2s;
+  font-style: italic;
+}
+
+/* SIGNATURE */
+.signature {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0;
+  letter-spacing: 0.5px;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 18.8s;
+}
+
+/* PLAY BUTTON */
+.play-btn {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  background: #c46a8f;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* ANIMATIONS */
+@keyframes doodleFade { to { opacity: 0.18; } }
+@keyframes textIn { to { opacity: 1; } }
+@keyframes blushIn {
+  0% { opacity: 0; color: #000; }
+  60% { opacity: 1; color: #c46a8f; }
+  100% { opacity: 1; color: #000; }
+}
+@keyframes writeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { to { opacity: 1; } }
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="play-btn" id="playBtn">▶ Play Music</button>
+
+<div class="stage">
+  <div class="doodle-bg"></div>
+
+  <div class="text-layer">
+    <div class="text-box">
+
+      <h1>Happy Valentine’s.</h1>
+
+      <p>
+        I didn’t want to explain this.  
+        I just wanted to leave it here,  
+        the way some moments stay — quietly.
+        <br><br>
+        <span class="blush">You’re just amazing.</span>
+      </p>
+
+      <div class="poem">
+        <div class="poem-line">तू अशी जवळ आलीस</div>
+        <div class="poem-line">की श्वासही विसरलो</div>
+        <div class="poem-line">डोळ्यांत तुझ्या हरवलो</div>
+        <div class="poem-line">आणि स्वतःलाच विसरलो.</div>
+
+        <br>
+
+        <div class="poem-line">स्पर्श तुझा होताच</div>
+        <div class="poem-line">नसानसात शहारा आला</div>
+        <div class="poem-line">प्रेमळ अशा क्षणांचा</div>
+        <div class="poem-line">सडाच जणू पडला.</div>
+
+        <br>
+
+        <div class="poem-line">तुझं हसणं, तुझं बोलणं</div>
+        <div class="poem-line">मन वेडं करून जातं</div>
+        <div class="poem-line">हृदयाच्या एका कोपऱ्यात</div>
+        <div class="poem-line">तूच सतत वसतेस.</div>
+
+        <div class="author">— विंदा करंदीकर</div>
+        <div class="signature">for you, always.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("playBtn");
+
+  btn.addEventListener("click", () => {
+    music.volume = 0.35;
+    music.play();
+    btn.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
